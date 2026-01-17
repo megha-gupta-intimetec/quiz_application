@@ -1,4 +1,7 @@
 How to Run the Project
+
+
+
 1 Clone the Repository
 git clone <your-github-repo-url>
 cd Quiz_Application
@@ -24,3 +27,4 @@ Install Live Server extension
 Right-click index.html
 
 Click Open with Live Server
+
