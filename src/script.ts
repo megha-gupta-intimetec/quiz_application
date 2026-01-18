@@ -1,13 +1,21 @@
 let currentQuestionIndex = 0;
+interface Question {
+  id: number;
+  question: string;
+  options: string[];
+  answer: string;
+  difficulty: string;
+}
 let questions: any[] = [];
 let selectedAnswers: (string | null)[] = [];
 let score = 0;
 
 async function loadQuizData() {
   try {
-    const response = await fetch("data.json");
-    const data = await response.json();
-    questions = data.quiz.questions;
+    const quizResponseData = await fetch("quizData.json");
+    const data = await quizResponseData.json();
+
+    questions = data.quizData.questions;
     const savedProgress = localStorage.getItem("quizProgress");
     if (savedProgress) {
       const progress = JSON.parse(savedProgress);
@@ -36,21 +44,21 @@ function showQuestion() {
   questionHeading.textContent = currentQuestion.question;
 
   currentQuestion.options.forEach((option: string, index: number) => {
-    const button = optionButtons[index];
-    if (button) {
-      button.textContent = option;
+    const optionButton = optionButtons[index];
+    if (optionButton) {
+      optionButton.textContent = option;
 
       if (selectedAnswers[currentQuestionIndex] === option) {
-        button.classList.add("selected");
+        optionButton.classList.add("selected");
       } else {
-        button.classList.remove("selected");
+        optionButton.classList.remove("selected");
       }
 
-      button.onclick = () => {
+      optionButton.onclick = () => {
         selectedAnswers[currentQuestionIndex] = option;
 
         optionButtons.forEach((button) => button.classList.remove("selected"));
-        button.classList.add("selected");
+        optionButton.classList.add("selected");
         localStorage.setItem(
           "quizProgress",
           JSON.stringify({
