@@ -30,27 +30,21 @@ function showQuestion() {
         return;
     const currentQuestion = questions[currentQuestionIndex];
     questionHeading.textContent = currentQuestion.question;
-    currentQuestion.options.forEach((option, index) => {
-        const optionButton = optionButtons[index];
-        if (optionButton) {
-            optionButton.textContent = option;
-            if (selectedAnswers[currentQuestionIndex] === option) {
-                optionButton.classList.add("selected");
-            }
-            else {
-                optionButton.classList.remove("selected");
-            }
-            optionButton.onclick = () => {
-                selectedAnswers[currentQuestionIndex] = option;
-                optionButtons.forEach((button) => button.classList.remove("selected"));
-                optionButton.classList.add("selected");
-                localStorage.setItem("quizProgress", JSON.stringify({
-                    currentQuestionIndex,
-                    selectedAnswers,
-                    score,
-                }));
-            };
-        }
+    renderOptions(optionButtons, currentQuestion);
+}
+function renderOptions(optionButtons, question) {
+    question.options.forEach((option, index) => {
+        const button = optionButtons[index];
+        if (!button)
+            return;
+        button.textContent = option;
+        button.classList.toggle("selected", selectedAnswers[currentQuestionIndex] === option);
+        button.onclick = () => {
+            selectedAnswers[currentQuestionIndex] = option;
+            optionButtons.forEach((btn) => btn.classList.remove("selected"));
+            button.classList.add("selected");
+            saveProgress();
+        };
     });
 }
 function handleNext() {

@@ -41,34 +41,34 @@ function showQuestion() {
   if (!questionHeading || !optionButtons) return;
 
   const currentQuestion = questions[currentQuestionIndex];
+
   questionHeading.textContent = currentQuestion.question;
 
-  currentQuestion.options.forEach((option: string, index: number) => {
-    const optionButton = optionButtons[index];
-    if (optionButton) {
-      optionButton.textContent = option;
+  renderOptions(optionButtons, currentQuestion);
+}
+function renderOptions(
+  optionButtons: NodeListOf<HTMLButtonElement>,
+  question: Question,
+) {
+  question.options.forEach((option, index) => {
+    const button = optionButtons[index];
+    if (!button) return;
 
-      if (selectedAnswers[currentQuestionIndex] === option) {
-        optionButton.classList.add("selected");
-      } else {
-        optionButton.classList.remove("selected");
-      }
+    button.textContent = option;
 
-      optionButton.onclick = () => {
-        selectedAnswers[currentQuestionIndex] = option;
+    button.classList.toggle(
+      "selected",
+      selectedAnswers[currentQuestionIndex] === option,
+    );
 
-        optionButtons.forEach((button) => button.classList.remove("selected"));
-        optionButton.classList.add("selected");
-        localStorage.setItem(
-          "quizProgress",
-          JSON.stringify({
-            currentQuestionIndex,
-            selectedAnswers,
-            score,
-          }),
-        );
-      };
-    }
+    button.onclick = () => {
+      selectedAnswers[currentQuestionIndex] = option;
+
+      optionButtons.forEach((btn) => btn.classList.remove("selected"));
+
+      button.classList.add("selected");
+      saveProgress();
+    };
   });
 }
 
