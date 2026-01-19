@@ -23,6 +23,14 @@ async function loadQuizData() {
     }
     showQuestion();
 }
+function updateButtonStates() {
+    const prevButton = document.querySelector(".previousbutton");
+    const nextButton = document.querySelector(".nextbutton");
+    if (!prevButton || !nextButton)
+        return;
+    prevButton.disabled = currentQuestionIndex === 0;
+    nextButton.disabled = currentQuestionIndex === questions.length - 1;
+}
 function showQuestion() {
     const questionHeading = document.querySelector(".quizQuestion h2");
     const optionButtons = document.querySelectorAll(".quizOption button");
@@ -30,6 +38,7 @@ function showQuestion() {
         return;
     const currentQuestion = questions[currentQuestionIndex];
     questionHeading.textContent = currentQuestion.question;
+    updateButtonStates();
     renderOptions(optionButtons, currentQuestion);
 }
 function renderOptions(optionButtons, question) {
@@ -101,9 +110,5 @@ document.addEventListener("DOMContentLoaded", () => {
         ?.addEventListener("click", handleSubmit);
 });
 loadQuizData();
-const allAnswered = selectedAnswers.every((ans) => ans !== null);
-if (!allAnswered) {
-    alert("Please answer all questions before submitting!");
-}
 export {};
 //# sourceMappingURL=script.js.map

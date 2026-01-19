@@ -81,13 +81,16 @@ footer {
 
 
 .quizOption{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+
+    grid-template-rows: auto;
+    
+    width: 50%;
     border: wheat;
     text-align: center;
    
-   gap: 25px;
+   gap: 40px;
    color: rgb(58, 55, 55);
   margin: auto;
   border: black;
@@ -96,6 +99,7 @@ footer {
 
  font-weight: dark;
  font-size: 40px;
+ font-weight: bold;
  font-family: Arial, Helvetica, sans-serif;
  
   
@@ -122,9 +126,10 @@ footer {
 .buttonquiz{
     border: black;
     border-radius: 10px;
-    padding: 8px;
+    padding: 10px;
     font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .buttons{

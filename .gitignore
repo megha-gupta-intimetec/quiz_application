@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Compiled JavaScript files
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
