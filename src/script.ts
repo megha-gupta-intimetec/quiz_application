@@ -45,12 +45,16 @@ function showQuestion() {
     document.querySelector<HTMLHeadingElement>(".quizQuestion h2");
   const optionButtons =
     document.querySelectorAll<HTMLButtonElement>(".quizOption button");
+  const counterDiv = document.querySelector<HTMLDivElement>(".questionCounter");
 
-  if (!questionHeading || !optionButtons) return;
+  if (!questionHeading || !optionButtons || !counterDiv) return;
 
   const currentQuestion = questions[currentQuestionIndex];
-
   questionHeading.textContent = currentQuestion.question;
+
+  const questionsLeft = questions.length - currentQuestionIndex - 1;
+  counterDiv.textContent = `${questionsLeft} question${questionsLeft !== 1 ? "s" : ""} left`;
+
   updateButtonStates();
 
   renderOptions(optionButtons, currentQuestion);

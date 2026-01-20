@@ -34,10 +34,13 @@ function updateButtonStates() {
 function showQuestion() {
     const questionHeading = document.querySelector(".quizQuestion h2");
     const optionButtons = document.querySelectorAll(".quizOption button");
-    if (!questionHeading || !optionButtons)
+    const counterDiv = document.querySelector(".questionCounter");
+    if (!questionHeading || !optionButtons || !counterDiv)
         return;
     const currentQuestion = questions[currentQuestionIndex];
     questionHeading.textContent = currentQuestion.question;
+    const questionsLeft = questions.length - currentQuestionIndex - 1;
+    counterDiv.textContent = `${questionsLeft} question${questionsLeft !== 1 ? "s" : ""} left`;
     updateButtonStates();
     renderOptions(optionButtons, currentQuestion);
 }
