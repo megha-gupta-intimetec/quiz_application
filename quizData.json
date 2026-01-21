@@ -1,0 +1,103 @@
+{
+    "quizData": {
+        "title": "General Knowledge Quiz (Easy)",
+        "questions": [
+            {
+                "id": 1,
+                "question": "What do we drink every day to stay alive?",
+                "options": [
+                    "Water",
+                    "Milk",
+                    "Juice",
+                    "Tea"
+                ],
+                "answer": "Water",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 2,
+                "question": "Which animal is known as the King of the Jungle?",
+                "options": [
+                    "Elephant",
+                    "Tiger",
+                    "Lion",
+                    "Monkey"
+                ],
+                "answer": "Lion",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 3,
+                "question": "Who is known as the Father of the Nation in India?",
+                "options": [
+                    "Jawaharlal Nehru",
+                    "Mahatma Gandhi",
+                    "Subhash Chandra Bose",
+                    "Bhagat Singh"
+                ],
+                "answer": "Mahatma Gandhi",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 4,
+                "question": "Which device is used to call someone?",
+                "options": [
+                    "Television",
+                    "Mobile Phone",
+                    "Printer",
+                    "Scanner"
+                ],
+                "answer": "Mobile Phone",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 5,
+                "question": "Which color is the sky on a clear day?",
+                "options": [
+                    "Green",
+                    "Blue",
+                    "Red",
+                    "Yellow"
+                ],
+                "answer": "Blue",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 6,
+                "question": "Which continent do we live on (India)?",
+                "options": [
+                    "Africa",
+                    "Europe",
+                    "Asia",
+                    "Australia"
+                ],
+                "answer": "Asia",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 7,
+                "question": "Which language is used to make web pages interactive?",
+                "options": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Python"
+                ],
+                "answer": "JavaScript",
+                "difficulty": "Easy"
+            },
+            {
+                "id": 8,
+                "question": "Which day comes after Friday?",
+                "options": [
+                    "Thursday",
+                    "Saturday",
+                    "Sunday",
+                    "Monday"
+                ],
+                "answer": "Saturday",
+                "difficulty": "Easy"
+            }
+        ]
+    }
+}
